@@ -4,9 +4,8 @@
 
 ## Load Data into memory
 ## create a table data table with appropiate column names from 3 files
-loadData <- function () {
+loadData <- function (type) {
     folder <- "UCI HAR Dataset/"
-    type <- "train"
     
     # filenames
     subjectFilename <- paste(folder,type, "/" , "subject_", type, ".txt",sep="")
@@ -28,5 +27,11 @@ loadData <- function () {
     
     dat <- cbind(subjects,y,x)
     dat
+}
 
+mergeData <- function(){
+    train <- loadData("train")
+    test <- loadData("test")
+    dat <- rbind(train,test)
+    dat
 }
