@@ -13,6 +13,7 @@ Tidy Data set.
 
 
 activity is a categical variable with 6 options
+
 1. walking
 2. sitting
 3. walkingupstairs
@@ -26,6 +27,7 @@ The initial naming of column utilised prefixes (ie t,f), suffixes (X,Y,Z), camel
 
 #### prefixes  t,f 
 are limited, domain typical abbreviations. 
+
  . Is it worth expanding them?
  . Would the usuability increased?
  
