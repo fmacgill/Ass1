@@ -13,12 +13,12 @@ Tidy Data set.
 
 
 activity is a categical variable with 6 options
-1.walking
-2.sitting
-3.walkingupstairs
-4.walkingdownstairs
-5.standing
-6.laying
+1. walking
+2. sitting
+3. walkingupstairs
+4. walkingdownstairs
+5. standing
+6. laying
 
 ### Variable name choices
 
