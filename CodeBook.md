@@ -26,7 +26,8 @@ activity is a categical variable with 6 options
 The initial naming of column utilised prefixes (ie t,f), suffixes (X,Y,Z), camel case, brackets (), scores (-) and abreviations (ie. std, Freq)
 
 #### prefixes  t,f 
-are limited, domain typical abbreviations. 
+
+prefixes  t,f  are limited, domain typical abbreviations. 
 
  . Is it worth expanding them?
  . Would the usuability increased?
