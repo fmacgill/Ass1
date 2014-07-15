@@ -35,3 +35,41 @@ mergeData <- function(){
     dat <- rbind(train,test)
     dat
 }
+
+grabMeanStds <- function ( input) {
+    if(missing(input)) {
+        dat <- mergeData() 
+    } else {
+        dat <- input
+    } 
+   
+    cols <- colnames(data)
+    icol <- grep("mean|std",cols)
+    icol <- append(c(1,2),icol)
+    
+    trimmed <- data[,icol]
+    trimmed
+}
+
+activityClean <- function ( input) {
+    if(missing(input)) {
+        dat <- grabMeanStds() 
+    } else {
+        dat <- input
+    } 
+    
+    activityFilename <- paste(folder, "activity_labels", ".txt",sep="")
+    activities <- read.table(activityFilename) # Activity
+    dat$activity <- factor(dat$activity,levels=activities[,1],labels=activities[,2])
+    dat
+}
+
+relabelVariables <- function (input) {
+    if(missing(input)) {
+        dat <- grabMeanStds() 
+    } else {
+        dat <- input
+    } 
+    
+    
+}
