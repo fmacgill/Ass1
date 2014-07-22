@@ -1,11 +1,11 @@
 ## run_analysis.R
-## 
-## Determine Row and Column Names
+library(doBy)
+
+folder <- "UCI HAR Dataset/"
 
 ## Load Data into memory
 ## create a table data table with appropiate column names from 3 files
 loadData <- function (type) {
-    folder <- "UCI HAR Dataset/"
     
     # filenames
     subjectFilename <- paste(folder,type, "/" , "subject_", type, ".txt",sep="")
@@ -43,11 +43,11 @@ grabMeanStds <- function ( input) {
         dat <- input
     } 
    
-    cols <- colnames(data)
+    cols <- colnames(dat)
     icol <- grep("mean|std",cols)
     icol <- append(c(1,2),icol)
     
-    trimmed <- data[,icol]
+    trimmed <- dat[,icol]
     trimmed
 }
 
@@ -60,16 +60,52 @@ activityClean <- function ( input) {
     
     activityFilename <- paste(folder, "activity_labels", ".txt",sep="")
     activities <- read.table(activityFilename) # Activity
+    activities$V2 <- tolower(activities$V2)
+    activities$V2 <- sub("_","",activities$V2)
     dat$activity <- factor(dat$activity,levels=activities[,1],labels=activities[,2])
     dat
 }
 
+## Converts column names to desired format
+## 
+## format is CamelCase with alphanumeric characters. 
+## '-' indicates the next character should  be converted to upper case
+## '-', '(', and ')'  characters are removed
+##
+## Seperated into own function to assist testing
+##
+## Input : array of strings
+## Output : array of strings
+cleanColumnNames <- function (cols){
+
+    result <- gsub("(-[a-z])","\\U\\1",cols,perl=TRUE)
+    result <- gsub("-","",result)
+    result <- gsub("\\(","",result)
+    result <- gsub("\\)","",result)
+    result       
+}
+
+
 relabelVariables <- function (input) {
     if(missing(input)) {
-        dat <- grabMeanStds() 
+        dat <- activityClean() 
     } else {
         dat <- input
     } 
     
-    
+    cols <- colnames(dat)
+    # According to feature.txt several column names are incorrect because the 
+    # word Body is repeated. Repeats Removed.
+    cols <- gsub("BodyBody","Body",cols)
+    colnames(dat) <- cleanColumnNames(cols)
+    dat
 }
+
+createTidyData <- function(){
+    dat <- relabelVariables()
+    # in doBy package
+    dat <- summaryBy(. ~subject+activity, data=dat,FUN=list(mean), keep.names=TRUE)
+    dat
+}
+
+    
