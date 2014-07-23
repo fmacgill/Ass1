@@ -29,20 +29,15 @@ loadData <- function (type) {
     dat
 }
 
-mergeData <- function(){
-    train <- loadData("train")
-    test <- loadData("test")
-    dat <- rbind(train,test)
-    dat
-}
+##
+## Returns data.frame with only the Mean and Standard Deviation columns
+## That is only columns containing mean 'mean()' and standard deviation 'std()' variables
+## 
+## Input data frame
+## Output data.frame with only columns containing mean and standard deviation variables
 
-grabMeanStds <- function ( input) {
-    if(missing(input)) {
-        dat <- mergeData() 
-    } else {
-        dat <- input
-    } 
-   
+trimToMeanStdColumns <- function ( dat) {
+
     cols <- colnames(dat)
     # do not want meanFreq column 
     icol <- grep("mean\\(\\)|std\\(\\)",cols,perl=TRUE)
@@ -52,13 +47,13 @@ grabMeanStds <- function ( input) {
     trimmed
 }
 
-activityClean <- function ( input) {
-    if(missing(input)) {
-        dat <- grabMeanStds() 
-    } else {
-        dat <- input
-    } 
-    
+## Replaces the activity id in the data.frame with activity names
+##
+## Input data.frame where activity column contains integer
+## Output data.frame where the activity column contain a self describing factor 
+#      with 6 levels
+factorizeActivity <- function ( dat) {
+
     activityFilename <- paste(folder, "activity_labels", ".txt",sep="")
     activities <- read.table(activityFilename) # Activity
     activities$V2 <- tolower(activities$V2)
@@ -90,33 +85,30 @@ cleanColumnNames <- function (cols){
     
     # Mag does not automatically imply magnitude so change
     result <- sub("Mag","Magnitude",result)
-    
-    # Gryo -> angular velocity
-    result <- sub("Gyro","AngularVelocity",result)
-    
-    
+       
     result       
 }
 
 
-relabelVariables <- function (input) {
-    if(missing(input)) {
-        dat <- activityClean() 
-    } else {
-        dat <- input
-    } 
-    
+renameVariables <- function (dat) {
     cols <- colnames(dat)
 
     colnames(dat) <- cleanColumnNames(cols)
     dat
 }
 
-createTidyData <- function(){
-    dat <- relabelVariables()
+run_analysis <- function(){
+    train <- loadData("train")
+    test <- loadData("test")
+    dat <- rbind(train,test)
+    
+    dat <- trimToMeanStdColumns(dat)
+    dat <- factorizeActivity(dat)
+    dat <- renameVariables(dat)
+    
+    # summarize to create tidy data 
     # in doBy package
     dat <- summaryBy(. ~subject+activity, data=dat,FUN=list(mean), keep.names=TRUE)
     dat
 }
-
     
