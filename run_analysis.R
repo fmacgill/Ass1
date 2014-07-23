@@ -44,7 +44,8 @@ grabMeanStds <- function ( input) {
     } 
    
     cols <- colnames(dat)
-    icol <- grep("mean|std",cols)
+    # do not want meanFreq column 
+    icol <- grep("mean\\(\\)|std\\(\\)",cols,perl=TRUE)
     icol <- append(c(1,2),icol)
     
     trimmed <- dat[,icol]
@@ -82,6 +83,18 @@ cleanColumnNames <- function (cols){
     result <- gsub("-","",result)
     result <- gsub("\\(","",result)
     result <- gsub("\\)","",result)
+    
+    # According to feature.txt several column names are incorrect because the 
+    # word Body is repeated. Repeats Removed.
+    result <- gsub("BodyBody","Body",result)
+    
+    # Mag does not automatically imply magnitude so change
+    result <- sub("Mag","Magnitude",result)
+    
+    # Gryo -> angular velocity
+    result <- sub("Gyro","AngularVelocity",result)
+    
+    
     result       
 }
 
@@ -94,9 +107,7 @@ relabelVariables <- function (input) {
     } 
     
     cols <- colnames(dat)
-    # According to feature.txt several column names are incorrect because the 
-    # word Body is repeated. Repeats Removed.
-    cols <- gsub("BodyBody","Body",cols)
+
     colnames(dat) <- cleanColumnNames(cols)
     dat
 }
