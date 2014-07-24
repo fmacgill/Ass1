@@ -17,6 +17,12 @@ The original data features were normalized and bounded within [-1,1].  The varia
 - Summarized the remaining variables by subject and activity by taking the mean/average without normalization
 
 
+## Variables
+
+### Subject
+
+subject is an identifier for each particpant 	1-30
+
 ### Renaming of activities
 The study look at 6 different activities 
 1. Walking
@@ -66,7 +72,7 @@ Choose to retain in present format, 2 options, commonly used in domain.
 #### sufffixes X.Y.Z 
 No alternatives would improve usuablility.
 
-## Variables
+### Variables Names
 - subject 
 - activity
 - tBodyAccMeanX
@@ -80,41 +86,41 @@ No alternatives would improve usuablility.
 - tGravityAccMeanZ
 - tGravityAccStdX
 - tGravityAccStdY
-tGravityAccStdZ
-tBodyAccJerkMeanX
-tBodyAccJerkMeanY
-tBodyAccJerkMeanZ
-tBodyAccJerkStdX
-tBodyAccJerkStdY
-tBodyAccJerkStdZ
-tBodyGyroMeanX
-tBodyGyroMeanY
-tBodyGyroMeanZ
-tBodyGyroStdX
-tBodyGyroStdY
-tBodyGyroStdZ
-tBodyGyroJerkMeanX
-tBodyGyroJerkMeanY
-tBodyGyroJerkMeanZ
-tBodyGyroJerkStdX
-tBodyGyroJerkStdY
-tBodyGyroJerkStdZ
-tBodyAccMagnitudeMean
-tBodyAccMagnitudeStd
-tGravityAccMagnitudeMean
-tGravityAccMagnitudeStd
-tBodyAccJerkMagnitudeMean
-tBodyAccJerkMagnitudeStd
-tBodyGyroMagnitudeMean
-tBodyGyroMagnitudeStd
-tBodyGyroJerkMagnitudeMean
-tBodyGyroJerkMagnitudeStd
-fBodyAccMeanX
-fBodyAccMeanY
-fBodyAccMeanZ
-fBodyAccStdX
-fBodyAccStdY
-fBodyAccStdZ
+- tGravityAccStdZ
+- tBodyAccJerkMeanX
+- tBodyAccJerkMeanY
+- tBodyAccJerkMeanZ
+- tBodyAccJerkStdX
+- tBodyAccJerkStdY
+- tBodyAccJerkStdZ
+- tBodyGyroMeanX
+- tBodyGyroMeanY
+- tBodyGyroMeanZ
+- tBodyGyroStdX
+- tBodyGyroStdY
+- tBodyGyroStdZ
+- tBodyGyroJerkMeanX
+- tBodyGyroJerkMeanY
+- tBodyGyroJerkMeanZ
+- tBodyGyroJerkStdX
+- tBodyGyroJerkStdY
+- tBodyGyroJerkStdZ
+- tBodyAccMagnitudeMean
+- tBodyAccMagnitudeStd
+- tGravityAccMagnitudeMean
+- tGravityAccMagnitudeStd
+- tBodyAccJerkMagnitudeMean
+- tBodyAccJerkMagnitudeStd
+- tBodyGyroMagnitudeMean
+- tBodyGyroMagnitudeStd
+- tBodyGyroJerkMagnitudeMean
+- tBodyGyroJerkMagnitudeStd
+- fBodyAccMeanX
+- fBodyAccMeanY
+- fBodyAccMeanZ
+- fBodyAccStdX
+- fBodyAccStdY
+- fBodyAccStdZ
 - fBodyAccJerkMeanX
 - fBodyAccJerkMeanY
 - fBodyAccJerkMeanZ
