@@ -7,10 +7,16 @@ A code book that describes the variables, the data, and any transformations or w
 Detials of how the data was collected can be found 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+## Data transformation
+
+. Merged test and training data sets
+. Isolated mean and standard deviation variables
+. Replaced / renamed activities and some variabled to faciliate easier use.
+. Summarized the remaining variables by subject and activity by taking the mean/average without normalization
+
+
+
 ## Variables
-
-Tidy Data set.
-
 
 activity is a categical variable with 6 options
 
