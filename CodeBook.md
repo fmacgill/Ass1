@@ -12,7 +12,7 @@ The original data features were normalized and bounded within [-1,1].  The varia
 ## Data transformation
 
 - Merged test and training data sets
-- Isolated mean and standard deviation variables
+- Isolated mean and standard deviation variables ( These variable names included the string 'mean()' or 'std()' )
 - Replaced / renamed activities and some variables to faciliate easier use.
 - Summarized the remaining variables by subject and activity by taking the mean/average without normalization
 
@@ -50,10 +50,9 @@ activity is a categical variable with 6 options
 
 The initial naming of column utilised prefixes (ie t,f), suffixes (X,Y,Z), camel case, brackets (), scores (-) and abreviations (ie. std, Freq)
 
-For long variable names camelCase provide superior readablity, and when with an IDE is easy work with.
-scores were replaced with a captial for the next letter, and braces removed.
+For long variable names camelCase provides superior readablity, and  with an IDE are easy to work with. The renaming process, replaced lower case characters after a score with an upper case character, removed braces and scores, and replace 'Mag' was replace with 'Magnitude'. Where the string 'Body' was duplicated only one was maintained.
 
-There were a large number of abbreviations. Replacement of each abbreviations with a more descriptive string was considered. Maintaining the original naming style for the majority of case, means my intreptation of the experiment will not confuse future users. Only 'Mag' was replace with 'Magnitude'.
+There were a large number of abbreviations. Replacement of each abbreviations with a more descriptive string was considered. Maintaining the original naming style for the majority of case, means my intreptation of the experiment will not confuse future users. 
 
 Note : Some abbreviations are domain specific; jerk,t,f. 
 
