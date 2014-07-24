@@ -56,7 +56,11 @@ For long variable names camelCase provides superior readablity, and  with an IDE
 
 There were a large number of abbreviations. Replacement of each abbreviations with a more descriptive string was considered. Maintaining the original naming style for the majority of case, means my intreptation of the experiment will not confuse future users. 
 
-Note : Some abbreviations are domain specific; jerk,t,f. 
+Note 
+
+Some abbreviations are domain specific; jerk,t,f. 
+
+For more details see the original feature-info.txt file.
 
 
 #### Variables prefixes and suffixes
