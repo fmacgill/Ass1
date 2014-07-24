@@ -25,6 +25,7 @@ subject is an identifier for each particpant 	1-30
 
 ### Renaming of activities
 The study look at 6 different activities 
+
 1. Walking
 2. Walking Upstairs
 3. Walking Downstairs
@@ -33,6 +34,7 @@ The study look at 6 different activities
 6. Laying
 
 In the original data each activity was mapped to an integer id between 1 and 6.
+
 Human readable naming will improve the usability of the data. 
 When choosing the human readable labels to use, lower, upper, and camelCase were consider.
 The activity labels are short, using solely lower case trades off ease of reading and typing.
